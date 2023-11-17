@@ -36,12 +36,13 @@ resistant_cancer_cell_lines.L2GEQ_custom_index(label1=[0,1,2], label2=[3,4,5,6,7
 Use caution as the implementation of assigning comparison groups is somewhat different from other calculate_L2GEQ methods. In .L2GEQ_custom_index() method, users are required to pass the index numbers of labels in a list. It will try to calculate L2GEQ by comparing label1 vs. label2 using the indices you pass.
 
 
-
-If you want to contact me, my email is bromynn@ncc.re.kr.
-
 4. L2GEQ has an additional functionality of extracting differentially expressed genes (DEGs) based on the L2GEQ value previously calculated. Refer to below:
 resistant_cancer_cell_lines.calculate_L2GEQ(cutoff=0.0005)
 resistant_cancer_cell_lines.set_annotation_db(r"YourDirectory\Human_Ensembl_Gene_ID_MSigDB.v2023.1.Hs.chip", sep='\t')
 resistant_cancer_cell_lines.extract_DEGs()
 
 You need a previous calculation of L2GEQ to activate .extract_DEGs() method. You also need a conversion table from Ensembl Id to HGNC Gene Symbol, such as one provided by MSigBD, if you are using a gene expression table with gene names in Ensembl ID. It has a cutoff parameter, which filters out the portion of L2GEQ value below that number (If you have a L2GEQ value of 100 and you threshold is 0.01, only genes that contribute to the upper 99 value will be extracted as DEGs)
+
+
+
+If you want to contact me, my email is bromynn@ncc.re.kr.
