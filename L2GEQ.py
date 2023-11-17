@@ -227,7 +227,7 @@ class L2GEQ:
     def designate_label(self, a_list):
         self.labels_received = a_list
 
-    def calculate_L2GEQ(self, sig_test='ttest', avg_method='mean', weight_method='inverse_p', weight_denom='multiply'):
+    def calculate_L2GEQ(self, sig_test='mannwhitney', avg_method='harmonic', weight_method='limit1_circular', weight_denom='multiply'):
         # Checking group label integrity
         try:
             type(self.labels_received)
@@ -262,7 +262,7 @@ class L2GEQ:
         self.result = pd.DataFrame(the_results)
         self.parameter_used = sig_test + ' ' + avg_method + ' ' + weight_method + ' ' + weight_denom
 
-    def calculate_withinL2GEQ(self, sig_test='ttest', avg_method='mean', weight_method='inverse_p',
+    def calculate_withinL2GEQ(self, sig_test='mannwhitney', avg_method='harmonic', weight_method='limit1_circular',
                               weight_denom='multiply'):
 
         # Checking if the data contains experiments groups that contain +4 elements
@@ -293,8 +293,8 @@ class L2GEQ:
                   math.sqrt(cal.sum() / cal.shape[0])
                   )
 
-    def calculate_L2GEQ_custom_index(self, custom_list1, custom_list2, sig_test='ttest', avg_method='mean',
-                                     weight_method='inverse_p', weight_denom='multiply'):
+    def calculate_L2GEQ_custom_index(self, custom_list1, custom_list2, sig_test='mannwhitney', avg_method='harmonic',
+                                     weight_method='limit1_circular', weight_denom='multiply'):
         # Checking group label integrity
         try:
             type(self.labels_received)
